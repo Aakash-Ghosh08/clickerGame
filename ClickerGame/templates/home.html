@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Score Tracker</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const socket = io();
+            socket.on("update_score", function(data) {
+                document.getElementById("score").innerText = data.score;
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>Score: <span id="score">{{points}}</span></h2>
+    <form method="POST">
+        <button type="submit" name="addScore">Increase Score</button>
+        <button type="submit" name="goToShop">Go To Shop</button>
+    </form>
+</body>
+</html>

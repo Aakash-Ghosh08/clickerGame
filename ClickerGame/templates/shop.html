@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const socket = io();
+            socket.on("update_score", function(data) {
+                document.getElementById("score").innerText = data.score;
+            });
+        });
+    </script>
+</head>
+<body>
+    <title>Shop</title>
+    <h1>Score: <span id="score">{{ points }}</span></h1>
+    <form method="POST">
+        <p>Farms: {{ numFarms }}</p>
+        <button type="submit" name="buyFarm">Buy Farm (Cost: 10)</button>
+        <button type="submit" name="goToHome">Go To Game</button>
+    </form>
+</body>
+</html>
