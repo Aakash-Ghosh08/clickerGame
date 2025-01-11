@@ -9,7 +9,6 @@ score = 0
 farms = 0
 
 def periodic_task():
-    print("Updating Score")
     global score
     if(farms > 0):
         score = score + 10 * farms
